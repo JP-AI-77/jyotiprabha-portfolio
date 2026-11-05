@@ -1,0 +1,10 @@
+{
+  "name": "Jyoti Prabha — Aspiring AI/ML Engineer",
+  "short_name": "Jyoti Prabha",
+  "description": "Portfolio of Jyoti Prabha, Computer Science (Data Science) undergraduate.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#241014",
+  "theme_color": "#241014",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ===== THEME: edit these values to recolor the whole site ===== */
+@theme {
+  --font-display: "Fraunces", "Cabinet Grotesk", serif;
+  --font-body: "Satoshi", system-ui, sans-serif;
+  --color-canvas: oklch(0.16 0.03 15);
+  --color-canvas-2: oklch(0.20 0.05 15);
+  --color-paper: oklch(0.93 0.02 60);
+  --color-ink: oklch(0.95 0.02 60);
+  --color-ink-dim: oklch(0.82 0.03 55);
+  --color-ink-on-paper: oklch(0.16 0.03 15);
+  --color-accent: oklch(0.72 0.11 55);
+  --color-shadow: oklch(0.08 0.02 15);
+  --color-ok: oklch(0.78 0.15 150);
+}
+
+:root {
+  --glow: color-mix(in oklab, var(--color-accent) 45%, transparent);
+  --line: color-mix(in oklab, var(--color-ink) 15%, transparent);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html,
+body {
+  @apply bg-(--color-canvas) text-(--color-ink) font-body antialiased;
+  scroll-padding-top: 72px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-canvas);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-canvas);
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+  border: 2px solid var(--color-canvas);
+}
+
+/* Link underline animation */
+.u-link { position: relative; }
+.u-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+.u-link:hover::after, .u-link:focus-visible::after { transform: scaleX(1); }
+
+.btn-glow { transition: box-shadow 0.5s var(--ease), background-color 0.4s, color 0.4s; }
+.btn-glow:hover { box-shadow: 0 0 28px var(--glow); }
+
+.badge { transition: transform 0.4s var(--ease), border-color 0.4s, box-shadow 0.4s; }
+.badge:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 6px 18px var(--glow); border-color: var(--color-accent); }
+
+.caret::after { content: "|"; margin-left: 2px; color: var(--color-accent); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
