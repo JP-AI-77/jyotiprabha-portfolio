@@ -7,6 +7,7 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
+import Achievements from "./sections/Achievements";
 import Credentials from "./sections/Credentials";
 import Contact from "./sections/Contact";
 import Cursor from "./components/Cursor";
@@ -34,6 +35,7 @@ export default function App() {
       <About />
       <Projects />
       <Skills />
+      <Achievements />
       <Credentials />
       <Contact />
     </main>

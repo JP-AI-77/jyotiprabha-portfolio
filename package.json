@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --port ${WEB_PORT:-5173}",
+    "dev": "vite --host 127.0.0.1 --port 5173",
     "dev:server": "cd server && uvicorn main:app --host 127.0.0.1 --port ${BACKEND_PORT:-8000} --reload",
     "dev:all": "concurrently -k -n web,api -c blue,green \"pnpm dev\" \"pnpm dev:server\"",
     "build": "tsc -b && vite build",
